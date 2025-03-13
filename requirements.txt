@@ -1,0 +1,7 @@
+fastapi
+pika
+psycopg2-binary
+redis
+websockets
+uvicorn
+arcgis
