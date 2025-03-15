@@ -41,9 +41,10 @@ const App = () => {
       console.log("WebSocket message received:", event.data);
 
       // Log the coordinates and all ship data to check if they're valid
-      console.log(`Longitude: ${shipData.longitude}, Latitude: ${shipData.latitude}`);
       console.log(`Speed: ${shipData.speed}, Heading: ${shipData.heading}`);
-      console.log(`Timestamp: ${new Date(shipData.timestamp * 1000).toLocaleString()}`);
+      console.log(
+        `Timestamp: ${new Date(shipData.timestamp * 1000).toLocaleString()}`
+      );
 
       // Check if we have valid data
       if (shipData.longitude && shipData.latitude) {
@@ -55,7 +56,7 @@ const App = () => {
 
         const symbol = new SimpleMarkerSymbol({
           color: "black", // Marker color
-          size: 6,        // Marker size (increase size for better visibility)
+          size: 6, // Marker size (increase size for better visibility)
         });
 
         const graphic = new Graphic({
@@ -71,8 +72,10 @@ const App = () => {
             <b>Longitude:</b> ${shipData.longitude} <br/>
             <b>Speed:</b> ${shipData.speed} knots <br/>
             <b>Heading:</b> ${shipData.heading}° <br/>
-            <b>Timestamp:</b> ${new Date(shipData.timestamp * 1000).toLocaleString()} <br/>
-          `
+            <b>Timestamp:</b> ${new Date(
+              shipData.timestamp * 1000
+            ).toLocaleString()} <br/>
+          `,
         });
 
         // Attach the popup template to the graphic
@@ -83,8 +86,10 @@ const App = () => {
 
         // Create and add label for the ship ID (Optional)
         const textSymbol = new TextSymbol({
-          text: `${shipData.ship_id} | ${shipData.latitude.toFixed(2)}° N, ${shipData.longitude.toFixed(2)}° E`, // Ship ID and coordinates
-          color: "white",         // Label color
+          text: `${shipData.ship_id} | ${shipData.latitude.toFixed(
+            2
+          )}° N, ${shipData.longitude.toFixed(2)}° E`, // Ship ID and coordinates
+          color: "white", // Label color
           font: {
             size: 8,
             family: "Arial",
